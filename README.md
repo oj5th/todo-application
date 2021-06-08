@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Step 1: Create a New Rails Application
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+rails new todo-application -d=postgresql --webpacker=react
+cd todo-application
+rails db:create
+rails g controller pages home my_todo_items
+yarn add bootstrap jquery popper.js
