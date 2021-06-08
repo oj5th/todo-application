@@ -23,3 +23,6 @@ Style Login Page (Optional)
 Step 3: Create Todo Item Model
 * rails g model TodoItem title user:references complete:boolean
 * rails db:migrate
+
+Set 4: Create the API
+* rails g controller api/v1/todo_items
