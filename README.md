@@ -19,3 +19,7 @@ Step 2: Install and Configure Devise
 Style Login Page (Optional)
 * rails generate devise:views
 * Edit app/views/devise/sessions/new.html.erb
+
+Step 3: Create Todo Item Model
+* rails g model TodoItem title user:references complete:boolean
+* rails db:migrate
