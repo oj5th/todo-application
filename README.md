@@ -15,3 +15,7 @@ Step 2: Install and Configure Devise
 * rails generate devise User
 * rails db:migrate
 * create shared files (see code)
+
+Style Login Page (Optional)
+* rails generate devise:views
+* Edit app/views/devise/sessions/new.html.erb
