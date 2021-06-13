@@ -10,5 +10,5 @@ Rails.application.routes.draw do
     end
   end
 
-  root 'pages#home'
+  root 'pages#home' # this will nagivate to homepage to avoid navigating to default rails page
 end
