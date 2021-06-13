@@ -26,3 +26,12 @@ Step 3: Create Todo Item Model
 
 Set 4: Create the API
 * rails g controller api/v1/todo_items
+
+Step 5: Setup working React + Redux
+* npm install --save redux babel-polyfill reselect react-redux redux-thunk axios redux-form lodash
+* npm install --save-dev redux-devtools-extension
+* npm install --save react-router-dom
+* yarn add react-router-dom bootstrap jquery popper.js
+* npm install @types/popper.js
+* yarn add @popperjs/core
+* yarn install
