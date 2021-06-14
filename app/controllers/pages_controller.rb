@@ -4,4 +4,7 @@ class PagesController < ApplicationController
 
   def my_todo_items
   end
+
+  def new_todo
+  end
 end

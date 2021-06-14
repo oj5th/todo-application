@@ -1,8 +1,11 @@
 class Api::V1::TodoItemsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:create]
   before_action :set_todo_item, only: [:show, :edit, :update, :destroy]
   def index
     @todo_items = current_user.todo_items.all
+  end
+
+  def new
   end
 
   def show
@@ -16,18 +19,19 @@ class Api::V1::TodoItemsController < ApplicationController
   end
 
   def create
+    unless current_user.present?
+      current_user = User.new(email: (params[:todo_items][:email] rescue "guest-#{rand(1..100)}@example.com"))
+      current_user.save!(validate: false)
+    end
+
     @todo_item = current_user.todo_items.build(todo_item_params)
-      if authorized?
-        respond_to do |format|
-          if @todo_item.save
-            format.json { render :show, status: :created, location: api_v1_todo_item_path(@todo_item) }
-          else
-            format.json { render json: @todo_item.errors, status: :unprocessable_entity }
-          end
-        end
+    respond_to do |format|
+      if @todo_item.save
+        format.json { render :show, status: :created, location: api_v1_todo_item_path(@todo_item) }
       else
-        handle_unauthorized
+        format.json { render json: @todo_item.errors, status: :unprocessable_entity }
       end
+    end
   end
 
   def update
